@@ -131,6 +131,16 @@ if (flow_control and order == 1) {
     order=2;
   }
 
+float h = dht.readHumidity();
+float t = dht.readTemperature();
+ if (isnan(t) || isnan(h)) 
+ 
+  {
+    Serial.println("Failed to read from DHT");
+    order=0;
+  } 
+  else 
+  {
 if (flow_control and order == 2) {
     /* Analog reading */
     float sensor3 = dht.readTemperature();
@@ -192,5 +202,5 @@ if (flow_control and order == 2) {
     flow_control = false;
     order=0;
   }
-
+  }
 }
